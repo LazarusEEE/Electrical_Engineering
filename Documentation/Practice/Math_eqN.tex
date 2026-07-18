@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}%,amssymb,amsthm}
+\usepackage{graphicx} % Required for inserting images
+
+\title{\LaTeX \text{} math Equation}
+\author{Lazarus Tuwary Tripura}
+\date{9 July 2026}
+
+\begin{document}
+
+\maketitle 
+
+\section{Equation}
+\subsection{Superscript and subscript}
+\begin{center}
+superscript:
+    $2x^2$\\
+$(a+b)^2 = a^2 + 2ab + b^2 $ \\
+$e^{x^2+2} = 4-3e^{2x}+2$ \\% double superscript need ()
+$e^{x^2+2}$ \\
+subscript:
+$x_1, x_2, x_3,...., x_n$\\
+$\alpha$
+\end{center}
+\subsection{Summation and Integral}
+\begin{equation}
+    U(f,P) = \sum_{i=1}^{\infty} f\alpha
+\end{equation}
+Integral:\\
+\begin{equation}
+    A = \int_{1}^{\infty}(x+1)\,dx
+\end{equation}
+$\sum$, $\prod$, 
+\subsection{limit}
+\begin{equation}
+    \lim_{a\to 7} \sin\theta
+\end{equation}
+$(x)$ $|x|$ \\
+\begin{center}
+    \begin{tabular}{|c|c|} %{|c|c|c|c}
+\hline
+    data & data  \\
+    \hline
+    12 & 13\\
+    \hline
+\end{tabular}
+\end{center}
+
+
+
+\end{document}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+         data & data & data \\
+         \hline
+         11 & 12 & 13 \\ 
+         \hline
+    \end{tabular}
+    \caption{testing}
+    \label{tab:placeholder}
+\end{table}
