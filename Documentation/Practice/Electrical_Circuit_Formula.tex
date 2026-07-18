@@ -1,0 +1,273 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\title{Electrical Circuit Formula}
+\author{For preparation formula}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{DC circuit Analysis}
+\textbf{Current(I)}: Rate of change flow. $$I = \frac{dq}{dt}$$\\
+\textbf{voltage(V)}: Energy per unit charge. $V = \frac{dw}{dq}$, where dw = the amount of work done.\\
+\textbf{Power(P)}: Rate of energy absorption/supply. $$P = VI = I^2R = \frac{V^2}{R}$$\\
+\textbf{Energy(W)}: Integrated power over time. $$W = \int{Pdt}$$
+\textbf{Ohm's Law}: $$V = IR$$
+\textbf{Kirchhoff's Current Law(KCL)} and \textbf{(KVL)}
+\[
+\sum I_{in} = \sum I_{out}
+\]
+\[
+\sum V_{loop} = 0
+\]
+\textbf{ Series and parallel circuits}:\\
+Series Resistance: $$R_{eq} = R_1 + R_2 +\dots + R_n $$\\
+Parallel Resistance:
+\begin{align}
+\frac{1}{R_{eq}} &= \frac{1}{R_1}+\frac{1}{R_2}+\cdots+\frac{1}{R_n}\\
+          R_{eq} &= \frac{R_1R_2}{R_1 + R_2}
+\end{align}
+Voltage Divider ( for $R_{1} $ in series with $ R_2$):
+\begin{center}
+    $V_1 = V_{total}*(\frac{R_1}{R_1 + R_2}) $
+\end{center}
+Current Divider (for $R_1 parallel to R_2$):
+\begin{center}
+    $ I_1 = I_{total}*(\frac{R_2}{R_1 + R_2}$
+\end{center}
+\textbf{Delta-Wye($\Delta$--Y)Conversions}\\
+Delta to Wye:
+\begin{align}
+    R_1 = \frac{R_bR_c}{R_a + R_b + R_c}\\
+    R_2 =\frac{R_aR_c}{R_a + R_b + R_c}\\
+    R_3 =\frac{R_aR_b}{R_a + R_b + R_c}
+\end{align}
+Wye to Delta:
+\begin{align}
+    R_a =\frac{R_1R_2 + R_2R3 + R_3R_1}{R_1}\\
+    R_b =\frac{R_1R_2 + R_2R3 + R_3R_1}{R_2}\\
+    R_c =\frac{R_1R_2 + R_2R3 + R_3R_1}{R_3}
+\end{align}
+\textbf{Circuit Network Theorems}:
+\begin{itemize}
+    \item Source Transformation: $ V_s = I_s*R$ and $ I_s = \frac{V_s}{R}$
+    \item Thevenin Voltage and Resistance: $ V_{Th} = V_{OC} $ ; (oc = Open circuit)   
+     \begin{center}
+        $ R_{Th} = \frac{V_{oc}}{I_{sc}}$ ; (Short-circuit current $ I_{sc}$
+     \end{center}
+     \item Norton Current And Resistance: $$ I_N = I_{sc}, R_N = R_{Th}$$
+\end{itemize}
+\textbf{Inductors and Capacitors}
+Capacitor(C):
+\begin{itemize}
+    \item Current: i(t) = C$\frac{dv(t)}{dt}$
+    \item Voltage: V(t) = $ \frac{1}{C}\int_{t_0}^{t}i(\tau)d\tau + v(t_0)$
+    \item Stored Energy: Wc = $ \frac{1}{2}CV^2$
+    \item DC steady State: Acts as an open circuit.
+\end{itemize}
+Inductor(L):
+\begin{itemize}
+    \item Voltage: v(t) = L$ \frac{di(t)}{dt}$
+    \item Current: i(t) = $ \frac{1}{L}\int_{t_0}^t d\tau + i(t_0)$
+    \item Stored Energy: $ W_L = \frac{1}{2}LI^2$
+    \item DC Steady State: Acts as a short circuit.
+\end{itemize}
+* First-order Transient Response (RC and RL Circuits):
+\begin{center}
+    $x(t) =x(\infty)+ [x(t_0)- x(\infty)]e^{\frac{-t}{\tau} }$
+\end{center}
+For RC circuits: Time constant $\tau = R\cdot C$
+For RL circuits: Time constant $\tau = \frac{L}{R}$
+\section{AC Sinusoidal Steady-State Analysis}
+\begin{enumerate}
+    \item Sinusoidal Basics and Waveform factors
+    \begin{itemize}
+        \item Sinusoidal Expression: $ v(t) = V_msin(wt + \phi$
+        \item Angular Frequency: $ \omega = 2\pi f = \frac{2\pi}{T}$
+        \item Root-Mean-Square(RMS): $ V_{rms} = \frac{V_m}{\sqrt{2}}\approx0.707V_m$
+        \item Average Value(Half-Cycle for sine wave): $ V_{avg} = \frac{2V_m}{\pi}\approx0.637V_m$
+        \item Form Factor: Form Factor = $ \frac{V_rms}{V_{avg}}=\frac{\pi}{2\sqrt{2}}$
+        \item Peak Factor: Peak Factor = $\frac{V_m}{V_rms} = \sqrt{2} \approx1.414$
+    \end{itemize}
+    \item Phasors, Impedance(Z), and Admittance(Y)
+    \begin{itemize}
+        \item Phasor Transform: $ V(t) = V_mcos(\omega t + \theta) \ and\ V = V_m\angle\theta = V_me^j\theta$
+        \item Impedance(Z = R + jX):
+        \begin{itemize}
+            \item Resistor(R): $ Z_R = R$
+            \item Inductor(L): $ Z_L = j\omega L = jX_L \ (Inductive Reactance X_L = \omega L)$
+            \item Capacitor(C): $ Z_C = \frac{1}{j\omega C} = -jX_C \\ Capacitance Reactance, X_C = \frac{1}{\omega C}$
+        \end{itemize}
+        \item Admittance $(Y = G + jB = \frac{1}{Z})$:
+        \begin{itemize}
+            \item G. Conductance, B.Susceptance.
+            \begin{center}
+                $ Y = \frac{1}{R + jX} = \frac{R}{R^2 + X^2}-j\frac{X}{R^2 + X^2}$
+            \end{center}
+        \end{itemize}
+            
+        \end{itemize}
+    \item AC Circuit Combination(R-L, R-C, R-L-C)
+        \begin{itemize}
+            \item Series RLC Impedance:
+            \begin{center}
+                $ Z = R + j(\omega L- \frac{1}{\omega C}) = |Z|\angle \theta $ 
+                $|Z|=\sqrt{R^2 +(X_L - X_C)^2}, \ \theta = tan^{-1}(\frac{X_L - X_C}{R}) $
+            \end{center}
+            \item AC Ohm's Law: V = I.Z
+        \end{itemize}
+    \item Sinusoidal Steady-State Power
+    \begin{itemize}
+        \item Instantaneous Power: p(t) = v(t)*i(t)
+        \item Complex Power(S): $ S = V_{rms}I_{rms} = P + jQ = |S|\angle \theta $
+        \item Real/Average Power(P): Measured in Watts(W). $$P = V_{rms}I_{rms}cos\theta = I_{rms}^2R $$
+        \item Reactive Power(Q): Measured in Volt-Amperes Reactive(VAR)
+        \begin{center}
+            $Q = V_{rms}I_{rms}sin\theta = I_{rms}^2X $
+        \end{center} 
+        \item Apparent Power(S): Measured in Volt-Ampere(VA). $$ S = |S| = V_{rms}I_{rms} = \sqrt{P^2 + Q^2}$$
+        \item Power Factor(PF): $ PF = cos\theta = \frac{P}{S}$
+    \end{itemize}
+    \item AC Maximum Power Transfer and Impedance Matching
+    \begin{itemize}
+        \item For a load impedance $ Z_L = Z_{Th} \Rightarrow R_L = R_{Th} \ and X_L = -X_{Th} $
+        \item Maximum Transferred Real Power: $$ P_{max} \frac{|V_{V_{Th},rms}|}{4R_{Th}} $$
+        
+    \end{itemize}
+\section{Technique of General Circuit Analysis}
+\begin{itemize}
+    \item \textbf{Advanced Network Analysis Equations}\\
+    Node-Voltage Method(KCL Matrix):\\
+    When solving a circuit with n nodes using Nodal Analysis, you set a system of linear equations using admittance $(G = \frac{1}{R}) $
+    $$
+    \begin{bmatrix}
+        G_{11} & G_{12} & \dots \\
+        G_{21} & G_{22} & \dots
+    \end{bmatrix}
+    \begin{bmatrix}
+        V_1\\
+        V_2
+    \end{bmatrix} =
+    \begin{bmatrix}
+        I_1\\
+        I_2
+    \end{bmatrix}
+    $$
+    \item Mesh-Current Method(KVL Matrix)\\
+    When solving a circuit with m meshes using Mesh Analysis, you set up a system using resistance(R):\\
+    $$
+    \begin{bmatrix}
+        R_{11} & R_{12} & \dots \\
+        R_{21} & R_{22} & \dots
+    \end{bmatrix}
+    \begin{bmatrix}
+        I_1\\
+        I_2
+    \end{bmatrix} =
+    \begin{bmatrix}
+        V_1\\
+        V_2
+    \end{bmatrix}
+    $$
+    \item Superposition Theorem\\
+    For any linear variable x(voltage or current) affected by independent sources $ S_1, S_2, \dots , S_n:$
+    \begin{center}
+        $ x = x_1 + x_2 + \dots + x_n$
+    \end{center}
+    (Where $x_i$ is the value computed while keeping source $S_i$ active and killing all other independent sources: short-circuiting voltage sources and open-circuiting current sources).
+\end{itemize}
+\section{Component Combinations (Inductors and Capacitors)}
+\begin{itemize}
+    \item Inductors(L) 
+    \begin{center}
+        $ Series: L_{eq} = L_1 + L_2 + \dots + L_n $ \\
+        $ Parallel: \frac{1}{L_{eq}} = \frac{1}{L_1} + \frac{1}{L_2} + \dots + \frac{1}{Ln}$
+    \end{center}
+    \item Capacitance(C)
+    \begin{center}
+        Series: $ \frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_n}$\\
+        Parallel: $ C_{eq} = C_1 + C_2 + \dots + C_n$
+    \end{center}
+    \item RMS Value(Any Periodic Wave): $$ V_{rms} = \sqrt{{\frac{1}{T}}\int_0^Tv^2(t)dt}$$
+    \item Average Value(Any periodic Wave): $$ V_{avg} =\frac{1}{T}\int_0^Tv(t)dt$$
+    \item Complex of AC Circuits:\\
+    Rectangular to Polar Conversion: 
+    $|Z| = \sqrt{R^2 + X^2},\  \theta = tan^{-1}(\frac{X}{R})$
+    \item Polar to Rectangular Conversion: $$ R = |Z|cos\theta, \ X = |Z|sin\theta$$
+    \item Admittance Components Explicitly:\\
+    If $Z = R + jX$, then $ Y = \frac{1}{Z} = G + jB $
+    \begin{center}
+        $ G = \frac{R}{R^2 + X^2} \Rightarrow (Conductance) $ \\
+        $ B = \frac{-X}{R^2 + X^2} \Rightarrow (Susceptance) $
+    \end{center}
+\end{itemize}
+\section{AC Voltage, Current and Power(R, L, C, R-L, R-C, R-L-C)}
+\begin{itemize}
+    \item Purely Resistive(R) Circuit:
+    \begin{itemize}
+        \item Impedance: Z = R\angle 0
+        \item Phase: Voltage and Current are in phase($\theta = 0)$
+        \item Power Factor: PF = cos(0) = 1
+    \end{itemize}
+    \item Purely Inductive(L) Circuit:
+    \begin{itemize}
+        \item Impedance: Z = $ \omega L\angle 90 = j\omega L $
+        \item Phase: Current lags voltage by 90 (0 = 90).
+        \item Power Factor: PF = cos(90) = 0(lagging)
+    \end{itemize}
+    \item Purely Capacitive(C) Circuit:
+    \begin{itemize}
+        \item $Impedance: Z = \frac{1}{\omega C}\angle -90 = -j\frac{1}{\omega C}$
+        \item Phase: Current leads voltage by 90($\theta = -90$
+        \item Power Factor: PF = cos(-90) = 0(leading)
+    \end{itemize}
+    \item Series R-L Circuit:
+    \begin{itemize}
+        \item Impedance: $ Z = R + j\omega L = \sqrt{R^2 + (\omega L)^2}\angle tan^{-1}(\frac{\omega L}{R})$
+        \item Current lags voltage by angle $\theta$
+    \end{itemize}
+    \item Series R-C Circuit:
+    \begin{itemize}
+        \item Impedance: Z = R -$ j\frac{1}{\omega C} = \sqrt{R^2 +(\frac{1}{\omega C})^2}\angle -tan^{-1}(\frac{1}{\omega CR})$
+    \end{itemize}
+    
+\end{itemize}
+\section{AC Series-Parallel Simplification(R, L, C)}
+\begin{itemize}
+    \item Impedance in Series: $$ Z_{eq} = Z_1 + Z_2 + Z_3+\dots$$
+    \item Impedance in Parallel: $\frac{1}{Z_{eq}} = \frac{1}{Z_1} + \frac{1}{Z_2} + \dots or for two component : Z_{eq} = \frac{Z_1\cdot Z_2}{Z_1 + Z_2}$
+    \item AC Delta-Wye \ ($\delta-Y) Conversion$ \\
+    The conversion formulas are structurally identical to the DC resistance formulas, but you use Complex Impedance(Z) instead of just R:
+    \begin{itemize}
+        \item Delta ($\Delta$) to Wye (Y):
+\begin{align*}
+Z_1 &= \frac{Z_bZ_c}{Z_a + Z_b + Z_c},\\
+Z_2 &= \frac{Z_aZ_c}{Z_a + Z_b + Z_c},\\
+Z_3 &= \frac{Z_aZ_b}{Z_a + Z_b + Z_c}.
+\end{align*}
+       \begin{align*}
+Z_a &= \frac{Z_1Z_2 + Z_2Z_3 + Z_3Z_1}{Z_1},\\
+Z_b &= \frac{Z_1Z_2 + Z_2Z_3 + Z_3Z_1}{Z_2},\\
+Z_c &= \frac{Z_1Z_2 + Z_2Z_3 + Z_3Z_1}{Z_3}.
+\end{align*}
+        \item AC Maximum Power Transfer
+\begin{itemize}
+    \item Reactive part $X_L$ is fixed, and the magnitude $|Z_L|$ is varied.
+    \item
+    \[
+    R_L=\sqrt{R_{Th}^{2}+\left(X_{Th}+X_L\right)^{2}}
+    \]
+    \item If the circuit is restricted to matching only the magnitudes,
+    \[
+    |Z_L|=|Z_{Th}|=\sqrt{R_{Th}^{2}+X_{Th}^{2}}
+    \]
+\end{itemize}
+    \end{itemize}
+   
+\end{itemize}
+
+\end{enumerate}
+\end{document}
